@@ -25,14 +25,14 @@ The best-performing model was the **peak-stage RGB U-Net** with 96.7% overall ac
 autumn-olive-detection/
 ├── README.md
 ├── Machine Learning and UASs for Managing Autumn Olive (Elaeagnus umbellata) on Reclaimed Surface Mines.pdf
-├── 01_preprocessing/
+├── preprocessing/
 │   ├── vegetation_indices.py          # raster vegetation index calculation
 │   ├── tabular_vegetation_indices.R   # tabular vegetation index calculation
 │   ├── image_chipper.py              # chip creation from orthomosaics
 │   └── chip_normalization.py         # flight-level z-score normalization
-├── 02_random_forest/
+├── random_forest/
 │   └── random_forest.R              # random forest classification
-└── 03_segmentation/
+└── unet_segmentation/
     ├── unet_model.py                # shared u-net architecture
     ├── unet_training.py             # u-net training pipeline
     ├── unet_prediction.py           # tiled inference on full orthomosaics
@@ -55,7 +55,7 @@ autumn-olive-detection/
 
 ```python
 # in unet_prediction.py, set:
-MODEL_PATH = "03_segmentation/unet_rgb_peak_best.pth"
+MODEL_PATH = "unet_segmentation/unet_rgb_peak.pth"
 MODEL_TYPE = "rgb"
 INPUT_IMAGE = "path/to/orthomosaic.tif"
 OUTPUT_DIR = "path/to/output"
